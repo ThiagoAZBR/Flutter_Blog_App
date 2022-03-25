@@ -30,6 +30,8 @@
 .pub-cache/
 .pub/
 /build/
+# API KEY
+/lib/app/shared/auth/secrets.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
