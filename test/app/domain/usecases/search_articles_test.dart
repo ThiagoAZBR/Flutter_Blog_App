@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_blog_app/app/domain/entities/ny_times_search.dart';
 import 'package:flutter_blog_app/app/domain/repositories/search_articles_repository.dart';
-import 'package:flutter_blog_app/app/domain/usecases/search_articles.dart';
+import 'package:flutter_blog_app/app/domain/usecases/search_articles_use_case.dart';
 import 'package:flutter_blog_app/app/shared/errors/errors.dart';
 import 'package:flutter_test/flutter_test.dart';
 
