@@ -1,5 +1,8 @@
 class SearchFailed implements Exception {
-  final String message;
+  final String _message;
 
-  SearchFailed(this.message);
+  SearchFailed(String message) : _message = message;
+
+  @override
+  String toString() => 'SearchFailed(message: $_message)';
 }
