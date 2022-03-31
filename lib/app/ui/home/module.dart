@@ -10,7 +10,9 @@ initModule() {
   final i = GetIt.instance;
   i.registerFactory<Dio>(() => Dio());
   i.registerFactory<SearchArticlesDataSource>(
-    () => SearchArticlesDataSourceImpl(),
+    () => SearchArticlesDataSourceImpl(
+      GetIt.I<Dio>(),
+    ),
   );
   i.registerFactory<SearchArticleRepository>(
     () => SearchArticleRepositoryImpl(
