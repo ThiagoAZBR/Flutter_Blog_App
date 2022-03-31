@@ -2,53 +2,67 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blog_app/app/shared/themes/app_colors.dart';
 import 'package:flutter_blog_app/app/shared/themes/app_fonts.dart';
 
-class ArticleCard extends StatelessWidget {
+class ArticleCard extends StatefulWidget {
   final String _date;
   final String _title;
   final String _body;
-  final VoidCallback _onIconPressed;
 
-  const ArticleCard(
-      {Key? key,
-      required String date,
-      required String title,
-      required String body,
-      required VoidCallback onIconPressed})
-      : _date = date,
+  const ArticleCard({
+    Key? key,
+    required String date,
+    required String title,
+    required String body,
+  })  : _date = date,
         _title = title,
         _body = body,
-        _onIconPressed = onIconPressed,
         super(key: key);
+
+  @override
+  State<ArticleCard> createState() => _ArticleCardState();
+}
+
+class _ArticleCardState extends State<ArticleCard> {
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.white,
+      decoration: const BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.all(Radius.circular(8))),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(_date),
+                Text(widget._date),
                 IconButton(
-                    onPressed: _onIconPressed,
+                    onPressed: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                    },
+                    color: isFavorite ? Colors.pink : AppColors.dark,
                     icon: const Icon(Icons.favorite_outline))
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(
-                top: 28,
-                bottom: 8,
+                top: 4,
+                bottom: 16,
               ),
               child: Text(
-                _title,
+                widget._title,
                 style: AppTextStyles.lexendDecaBig(),
               ),
             ),
             Text(
-              _body,
+              widget._body,
               style: AppTextStyles.lexendDecaSmall(),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
             ),
           ],
         ),

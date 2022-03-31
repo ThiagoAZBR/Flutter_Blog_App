@@ -1,9 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_blog_app/app/shared/themes/app_colors.dart';
 import 'package:flutter_blog_app/app/shared/themes/app_fonts.dart';
 
 class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({Key? key}) : super(key: key);
+  final Function(String value) _onSubmitted;
+  const AppBarWidget({Key? key, required Function(String value) onSubmitted}) :
+  _onSubmitted = onSubmitted, super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +53,7 @@ class AppBarWidget extends StatelessWidget {
                 style: AppTextStyles.interBig(AppColors.white),
                 itemColor: AppColors.white,
                 backgroundColor: AppColors.white.withOpacity(0.2),
+                onSubmitted: _onSubmitted,
               )
             ],
           ),
