@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_blog_app/app/external/datasources/mappers/ny_times_search_mapper.dart';
-import 'package:flutter_blog_app/app/infra/datasources/search_article_data_source.dart';
+import 'package:flutter_blog_app/app/infra/datasources/search_articles_data_source.dart';
 import 'package:flutter_blog_app/app/domain/usecases/search_articles_use_case.dart';
 import 'package:flutter_blog_app/app/domain/entities/ny_times_search.dart';
 import 'package:flutter_blog_app/app/shared/app_urls.dart';
@@ -12,7 +12,7 @@ class SearchArticlesDataSourceImpl implements SearchArticlesDataSource {
   SearchArticlesDataSourceImpl(Dio dio) : _dio = dio;
 
   @override
-  Future<NYTimesSearch> searchArticles(SearchArticleParams params) async {
+  Future<NYTimesSearch> searchArticles(SearchArticlesParams params) async {
     final searchResponse = await _dio.get(AppUrls.nyTimesArticleSearch,
         queryParameters: {'q': params.subject, 'api-key': apiKey});
 

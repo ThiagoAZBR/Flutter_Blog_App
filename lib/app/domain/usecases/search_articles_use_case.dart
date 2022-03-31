@@ -4,21 +4,21 @@ import 'package:flutter_blog_app/app/domain/repositories/search_articles_reposit
 import 'package:flutter_blog_app/app/domain/usecases/usecase.dart';
 
 class SearchArticleUseCase
-    implements UseCase<NYTimesSearch, SearchArticleParams> {
-  final SearchArticleRepository _searchArticleRepository;
+    implements UseCase<NYTimesSearch, SearchArticlesParams> {
+  final SearchArticlesRepository _searchArticleRepository;
 
-  SearchArticleUseCase(SearchArticleRepository searchArticleRepository)
+  SearchArticleUseCase(SearchArticlesRepository searchArticleRepository)
       : _searchArticleRepository = searchArticleRepository;
 
   @override
   Future<Either<Exception, NYTimesSearch>> call(
-      SearchArticleParams params) async {
+      SearchArticlesParams params) async {
     return await _searchArticleRepository.searchArticles(params);
   }
 }
 
-class SearchArticleParams {
+class SearchArticlesParams {
   final String subject;
 
-  SearchArticleParams({required this.subject});
+  SearchArticlesParams({required this.subject});
 }

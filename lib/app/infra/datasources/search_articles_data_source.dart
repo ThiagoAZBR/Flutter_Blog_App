@@ -3,5 +3,5 @@ import 'package:flutter_blog_app/app/domain/usecases/search_articles_use_case.da
 
 abstract class SearchArticlesDataSource {
   Future<NYTimesSearch> searchArticles(
-      SearchArticleParams params);
+      SearchArticlesParams params);
 }
