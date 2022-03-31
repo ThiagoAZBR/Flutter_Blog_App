@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_blog_app/app/domain/entities/ny_times_search.dart';
+import 'package:flutter_blog_app/app/domain/entities/ny_times_article.dart';
 import 'package:flutter_blog_app/app/domain/repositories/search_articles_repository.dart';
 import 'package:flutter_blog_app/app/domain/usecases/search_articles_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -15,11 +15,15 @@ void main() {
       SearchArticleUseCase(searchArticleRepository);
 
   final SearchArticlesParams params = SearchArticlesParams(subject: 'technology');
+  List<NYTimesArticle> _nyTimesArticles = <NYTimesArticle>[
+    NYTimesArticle(
+        title: 'title', webUrl: 'webUrl', publishingDate: 'publishingDate')
+  ];
 
   test('Must return New York times API data (Right)', () async {
     when(() => searchArticleRepository.searchArticles(params)).thenAnswer(
       (_) async => Right(
-        NYTimesSearch(status: 'Ok', copyright: 'copyright', response: {}),
+        _nyTimesArticles,
       ),
     );
 
