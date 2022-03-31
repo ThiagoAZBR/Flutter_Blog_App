@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog_app/app/shared/themes/app_colors.dart';
+import 'package:flutter_blog_app/app/shared/themes/app_fonts.dart';
 
 class ArticleCard extends StatelessWidget {
   final String _date;
@@ -21,6 +23,7 @@ class ArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: AppColors.white,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -38,9 +41,15 @@ class ArticleCard extends StatelessWidget {
                 top: 28,
                 bottom: 8,
               ),
-              child: Text(_title),
+              child: Text(
+                _title,
+                style: AppTextStyles.lexendDecaBig(),
+              ),
             ),
-            Text(_body)
+            Text(
+              _body,
+              style: AppTextStyles.lexendDecaSmall(),
+            ),
           ],
         ),
       ),

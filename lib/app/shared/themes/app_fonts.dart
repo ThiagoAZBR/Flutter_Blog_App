@@ -24,4 +24,25 @@ class AppTextStyles {
     fontFamily: 'Inter',
     color: color
   );
+
+  static TextStyle lexendDecaSmall([Color color = AppColors.grayDark]) => TextStyle(
+    fontSize: 12,
+    fontFamily: 'LexendDeca',
+    color: color
+  );
+  static TextStyle lexendDecaMedium([Color color = AppColors.grayDark]) => TextStyle(
+    fontSize: 14,
+    fontFamily: 'LexendDeca',
+    color: color
+  );
+  static TextStyle lexendDecaBig([Color color = AppColors.grayDark]) => TextStyle(
+    fontSize: 16,
+    fontFamily: 'LexendDeca',
+    color: color
+  );
+  static TextStyle lexendDecaVeryBig([Color color = AppColors.grayDark]) => TextStyle(
+    fontSize: 18,
+    fontFamily: 'LexendDeca',
+    color: color
+  );
 }

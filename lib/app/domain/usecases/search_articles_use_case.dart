@@ -3,11 +3,11 @@ import 'package:flutter_blog_app/app/domain/entities/ny_times_article.dart';
 import 'package:flutter_blog_app/app/domain/repositories/search_articles_repository.dart';
 import 'package:flutter_blog_app/app/domain/usecases/usecase.dart';
 
-class SearchArticleUseCase
+class SearchArticlesUseCase
     implements UseCase<List<NYTimesArticle>, SearchArticlesParams> {
   final SearchArticlesRepository _searchArticleRepository;
 
-  SearchArticleUseCase(SearchArticlesRepository searchArticleRepository)
+  SearchArticlesUseCase(SearchArticlesRepository searchArticleRepository)
       : _searchArticleRepository = searchArticleRepository;
 
   @override

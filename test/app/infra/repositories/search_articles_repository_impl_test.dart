@@ -19,7 +19,7 @@ void main() {
       SearchArticlesParams(subject: 'technology');
   List<NYTimesArticle> _nyTimesArticles = <NYTimesArticle>[
     NYTimesArticle(
-        title: 'title', webUrl: 'webUrl', publishingDate: 'publishingDate')
+        title: 'title', webUrl: 'webUrl', publishingDate: 'publishingDate', leadParagraph: 'lead_paragraph')
   ];
 
   test('Search articles repository impl must return Right', () async {

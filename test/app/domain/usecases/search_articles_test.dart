@@ -11,13 +11,13 @@ class SearchArticleRepositoryMock extends Mock
 void main() {
   final SearchArticlesRepository searchArticleRepository =
       SearchArticleRepositoryMock();
-  final SearchArticleUseCase searchArticleUseCase =
-      SearchArticleUseCase(searchArticleRepository);
+  final SearchArticlesUseCase searchArticleUseCase =
+      SearchArticlesUseCase(searchArticleRepository);
 
   final SearchArticlesParams params = SearchArticlesParams(subject: 'technology');
   List<NYTimesArticle> _nyTimesArticles = <NYTimesArticle>[
     NYTimesArticle(
-        title: 'title', webUrl: 'webUrl', publishingDate: 'publishingDate')
+        title: 'title', webUrl: 'webUrl', publishingDate: 'publishingDate', leadParagraph: 'lead_paragraph')
   ];
 
   test('Must return New York times API data (Right)', () async {

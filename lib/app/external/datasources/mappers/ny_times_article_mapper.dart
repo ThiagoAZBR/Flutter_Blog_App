@@ -5,6 +5,7 @@ class NYTimesArticleMapper {
     return NYTimesArticle(
         title: json['abstract'],
         webUrl: json['web_url'],
-        publishingDate: json['pub_date']);
+        publishingDate: json['pub_date'],
+        leadParagraph: json['lead_paragraph']);
   }
 }
