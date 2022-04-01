@@ -31,25 +31,29 @@ class ErrorPage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: [
-                const SizedBox(
-                  height: 104,
-                ),
-                Text('Ops :/', style: AppTextStyles.lexendDecaExtra()),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                    vertical: 8,
+            SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 104,
                   ),
-                  child: Text(
-                    'Something went wrong. \nUse another keyword or try again.',
-                    style: AppTextStyles.lexendDecaMedium(),
-                    textAlign: TextAlign.center,
+                  Text('Ops :/', style: AppTextStyles.lexendDecaExtra()),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 18,
+                      vertical: 8,
+                    ),
+                    child: Text(
+                      'Something went wrong. \nUse another keyword or try again.',
+                      style: AppTextStyles.lexendDecaMedium(),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
-                ),
-                Image.asset(AppUrls.errorImage)
-              ],
+                  Image.asset(AppUrls.errorImage)
+                ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 56),
