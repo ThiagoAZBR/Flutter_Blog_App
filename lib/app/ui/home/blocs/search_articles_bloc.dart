@@ -38,6 +38,9 @@ class SearchArticlesBloc extends Cubit<SearchArticlesState> {
     }, (data) {
       listOfArticles = data;
       emit(const SearchArticlesStateNoError());
+      if (listOfArticles.isEmpty) {
+        Navigator.pushNamed(context, AppUrls.errorPageUrl);
+      }
     });
   }
 
