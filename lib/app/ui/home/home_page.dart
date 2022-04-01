@@ -4,7 +4,7 @@ import 'package:flutter_blog_app/app/domain/usecases/search_articles_use_case.da
 import 'package:flutter_blog_app/app/shared/themes/app_colors.dart';
 import 'package:flutter_blog_app/app/ui/home/blocs/search_articles_bloc.dart';
 import 'package:flutter_blog_app/app/ui/home/blocs/states/search_articles_state.dart';
-import 'package:flutter_blog_app/app/ui/home/article_cards_shimmer.dart';
+import 'package:flutter_blog_app/app/ui/home/widgets/article_cards_shimmer.dart';
 import 'package:flutter_blog_app/app/ui/home/widgets/app_bar.dart';
 import 'package:flutter_blog_app/app/ui/home/widgets/article_card.dart';
 import 'package:get_it/get_it.dart';
@@ -21,9 +21,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    _searchArticlesBloc.searchArticles(
-      SearchArticlesParams(subject: 'Technology'),
-    );
+    _searchArticlesBloc
+        .searchArticles(SearchArticlesParams(subject: 'Technology'), context);
     super.initState();
   }
 
@@ -45,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                   background: AppBarWidget(
                     onSubmitted: (searchFieldText) {
                       _searchArticlesBloc.searchArticles(
-                          SearchArticlesParams(subject: searchFieldText));
+                          SearchArticlesParams(subject: searchFieldText), context);
                     },
                   ),
                 ),
@@ -60,9 +59,7 @@ class _HomePageState extends State<HomePage> {
                       }
 
                       if (state is SearchArticlesStateError) {
-                        return const Center(
-                          child: Text('An error occurred'),
-                        );
+                        return const SizedBox();
                       }
 
                       return Padding(

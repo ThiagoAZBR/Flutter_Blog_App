@@ -45,4 +45,10 @@ class AppTextStyles {
     fontFamily: 'LexendDeca',
     color: color
   );
+  static TextStyle lexendDecaExtra([Color color = AppColors.grayDark]) => TextStyle(
+    fontSize: 24,
+    fontFamily: 'LexendDeca',
+    color: color,
+    fontWeight: FontWeight.bold
+  );
 }

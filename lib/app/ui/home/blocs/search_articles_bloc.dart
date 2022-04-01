@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blog_app/app/domain/entities/ny_times_article.dart';
 import 'package:flutter_blog_app/app/domain/usecases/search_articles_use_case.dart';
+import 'package:flutter_blog_app/app/shared/app_urls.dart';
 import 'package:flutter_blog_app/app/ui/home/blocs/states/search_articles_state.dart';
 
 class SearchArticlesBloc extends Cubit<SearchArticlesState> {
@@ -25,12 +27,15 @@ class SearchArticlesBloc extends Cubit<SearchArticlesState> {
       : _searchArticleUseCase = searchArticleUseCase,
         super(const SearchArticlesStateLoading());
 
-  Future<void> searchArticles(SearchArticlesParams params) async {
+  Future<void> searchArticles(SearchArticlesParams params, BuildContext context) async {
     emit(const SearchArticlesStateLoading());
 
     final articles = await _searchArticleUseCase(params);
 
-    articles.fold((failure) => emit(const SearchArticlesStateError()), (data) {
+    articles.fold((failure) {
+      emit(const SearchArticlesStateError());
+      Navigator.pushNamed(context, AppUrls.errorPageUrl);
+    }, (data) {
       listOfArticles = data;
       emit(const SearchArticlesStateNoError());
     });
