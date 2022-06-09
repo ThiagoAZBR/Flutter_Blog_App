@@ -1,8 +1,8 @@
-# Flutter Blog App
+# Flutter News App
 
 Project created to make the first challenge of [Uiri-Code](https://github.com/iuricode)
 
-A blog app that shows news from New York Times API: https://developer.nytimes.com/
+An app that shows news from New York Times API: https://developer.nytimes.com/
 
 Was used: 
  - [Clean Architecture](https://github.com/Flutterando/Clean-Dart) 
